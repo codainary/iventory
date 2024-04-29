@@ -18,7 +18,7 @@ import {
 import { CardWrapper } from "@/components/auth/card-wrapper";
 import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
-import { login } from "@/actions/login";
+import { register } from "@/actions/register";
 import { useState, useTransition } from "react";
 
 export const RegisterForm = () => {
@@ -40,7 +40,7 @@ export const RegisterForm = () => {
         setSuccess("");
 
         startTransition(() => {
-            login(values)
+            register(values)
                 .then((data) => {
                     setError(data.error);
                     setSuccess(data.success);
@@ -51,7 +51,7 @@ export const RegisterForm = () => {
     return (
         <CardWrapper
             headerLabel="Create an account"
-            backButtonLabel="Do you have an account?"
+            backButtonLabel="Already have an account?"
             backButtonHref="/login"
             showSocial
         >
@@ -124,7 +124,7 @@ export const RegisterForm = () => {
                         type="submit"
                         className="w-full"
                     >
-                        Register
+                        Create an account
                     </Button>
                 </form>
             </Form>
